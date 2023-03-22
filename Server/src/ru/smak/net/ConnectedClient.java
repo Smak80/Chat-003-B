@@ -25,8 +25,18 @@ public class ConnectedClient {
         }).start();
     }
 
+    public void send(String userData) {
+        try {
+            nio.sendData(userData);
+        } catch (IOException e) {
+            System.out.println("Ошибка: " + e);
+        }
+    }
     public Void parse(String d){
         System.out.println(d);
+        for(var c:clients){
+            c.send(d);
+        }
         return null;
     }
 }
