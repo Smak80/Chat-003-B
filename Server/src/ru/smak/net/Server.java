@@ -1,2 +1,4 @@
-package ru.smak.net;public class Server {
+package ru.smak.net;
+
+public class Server {
 }
