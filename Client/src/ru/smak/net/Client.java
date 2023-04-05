@@ -26,7 +26,39 @@ public class Client {
     }
 
     public Void parse(String d){
-        System.out.println(d);
+        var data = d.split(":", 2);
+        Command cmd = null;
+        try {
+            cmd = Command.valueOf(data[0]);
+        } catch (Exception ignored){
+        }
+        switch (cmd) {
+            case INTRODUCE -> {
+                if (data.length > 1 && data[1].trim().length() > 0) {
+                    System.out.println(data[1]);
+                } else {
+                    System.out.println("Представьтесь, пожалуйста:");
+                }
+            }
+            case MESSAGE -> {
+                if (data.length > 1 && data[1].trim().length() > 0) {
+                    System.out.println(data[1]);
+                }
+            }
+            case LOGGED_IN -> {
+                if (data.length > 1 && data[1].trim().length() > 0) {
+                    System.out.println("Пользователь " + data[1] + " вошёл в чат");
+                }
+            }
+            case LOGGED_OUT -> {
+                if (data.length > 1 && data[1].trim().length() > 0) {
+                    System.out.println("Пользователь " + data[1] + " покинул чат");
+                }
+            }
+            case null -> {
+
+            }
+        }
         return null;
     }
 

@@ -25,12 +25,12 @@ public class Server {
                         Socket s = sSckt.accept();
                         new ConnectedClient(s).start();
                     } catch (IOException e) {
-                        System.out.println("Ошибка: "+e.getMessage());
+                        System.out.println("Ошибка (1): "+e.getMessage());
                     }
                 }
             }).start();
         } catch (IOException e) {
-            System.out.println("Ошибка: "+e.getMessage());
+            System.out.println("Ошибка (2): "+e.getMessage());
         }
     }
 
